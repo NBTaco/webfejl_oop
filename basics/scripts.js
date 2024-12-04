@@ -111,3 +111,47 @@ console.log(a.name)
 
 const s = new Student("Nándi", "Bolyai")
 console.log("Név: " + s.GetName()  + "Iskola:"  + s.school)
+
+
+class Animal {
+    constructor(name)
+    {
+        this.name = name;
+    }
+    hang()
+    {
+        console.log(this.name + " hangja van")
+    }
+}
+
+
+class Bird extends Animal {
+    constructor(name)
+    {
+        super(name);
+    }
+    repules()
+    {
+        console.log(this.name + " repül");
+    }
+}
+
+
+class Mammal extends Animal { 
+    constructor(name)
+    {
+        super(name);
+    }
+    setalas()
+    {
+        console.log(this.name + " sétál."); 
+    } 
+}
+
+
+const madar = new Bird("Sólyom"); 
+madar.hang(); 
+madar.repules();
+const mammal = new Mammal("Hörcsög");
+mammal.hang();
+mammal.setalas();
