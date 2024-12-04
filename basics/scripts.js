@@ -135,4 +135,20 @@ class Bird extends Animal {
     }
 }
 
+class Mammal extends Animal { 
+    constructor(name)
+    {
+        super(name);
+    }
+    setalas()
+    {
+        console.log(this.name + " sétál."); 
+    } 
+}
 
+const madar = new Bird("Sólyom"); 
+madar.hang(); 
+madar.repules();
+const mammal = new Mammal("Hörcsög");
+mammal.hang();
+mammal.setalas();
