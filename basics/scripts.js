@@ -73,7 +73,7 @@ gomszab.Played()
 gomszab.GetTierLevel()
 console.log(gomszab);
 
-
+/*
 function Person(name){
     this.name = name
 }
@@ -88,3 +88,24 @@ function Student(name, school){
 }
 
 Object.setPrototypeOf(Student.prototype, Person.prototype)
+*/
+
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+class Student extends Person {
+    constructor(name, school) {
+        super(name);
+        this.school = school;
+    }
+}
+
+let a = new Person("Géza")
+console.log(a.name)
+
