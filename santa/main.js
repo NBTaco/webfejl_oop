@@ -46,6 +46,15 @@ document.getElementById('product').addEventListener('submit',function(e){
 function initTable(){
 
    // TODO 6
+    for(let i = 0; i < companionList.length; i ++)
+    {
+        const mano = companionList(i)
+        const companion = new Companion(i, mano.firstName, mano.lastName, mano.area)
+        for (const y of mano.products) 
+        {
+            companion.AddProduct(y)
+        }
+    }
 }
 
 

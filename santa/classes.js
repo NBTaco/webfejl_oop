@@ -7,7 +7,7 @@ class Factory{
     }
     addMano(mano)
     {
-        
+        this.manolist.push(mano)
     }
 }
    
@@ -21,5 +21,9 @@ class Factory{
             this.reszleg = reszleg
             this.products = []
         }
+        AddProduct(product){
+            this.products.push(product)
+        }
+    }
     
-}
+    
