@@ -46,13 +46,13 @@ document.getElementById('product').addEventListener('submit',function(e){
 function initTable(){
 
    // TODO 6
-    for(let i = 0; i < companionList.length; i ++)
+    for(let i = 0; i < companionList.length; i ++) //végigmegy a companionList-en 
     {
-        const mano = companionList(i)
-        const companion = new Companion(i, mano.firstName, mano.lastName, mano.area)
-        for (const y of mano.products) 
+        const mano = companionList[i] //List- i-dik eleme kivéve
+        const companion = new Companion(i, mano.firstName, mano.lastName, mano.area) //Companion objektum létrehoz, contruktorra példányositjuk
+        for (const y of mano.products)  //mano objektum products-on megy végig
         {
-            companion.AddProduct(y)
+            companion.AddProduct(y) //hozzáadja az companion objektumhoz a productot
         }
     }
 }
