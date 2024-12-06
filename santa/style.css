@@ -1,0 +1,31 @@
+table,tr,td,th{
+    border: 2px, solid, black;
+    border-collapse: collapse;
+}
+
+#products{
+    display: none;
+}
+#companion_name{
+    display: none;
+}
+
+#companion{
+    width: fit-content;
+    border: 5px solid rgb(84, 163, 84);
+}
+
+#product{
+    width: fit-content;
+    border: 5px solid rgb(84, 121, 190);
+}
+
+.row-container{
+    display: flex;
+}
+
+.row-container > *{
+    margin: 12px;
+    padding: 6px;
+    border-radius: 4px;
+}
