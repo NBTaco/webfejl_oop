@@ -110,7 +110,7 @@ let a = new Person("Géza")
 console.log(a.name)
 
 const s = new Student("Nándi", "Bolyai")
-console.log("Név: " + s.GetName()  + "Iskola:"  + s.school)
+console.log("Név: " + s.getName()  + "Iskola:"  + s.school)
 
 
 class Animal {
