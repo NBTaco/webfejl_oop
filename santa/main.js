@@ -43,6 +43,7 @@ document.getElementById('product').addEventListener('submit',function(e){
 /**
 * table render
 */
+
 function initTable(){
 
    // TODO 6
@@ -54,6 +55,8 @@ function initTable(){
         {
             companion.AddProduct(y) //hozzáadja az companion objektumhoz a productot
         }
+
+        console.log(companion) //kiirjuk a companiont a kozolra
     }
 }
 
