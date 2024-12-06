@@ -8,11 +8,15 @@ class Factory{
     addMano(mano)
     {
         this.manolist.push(mano)
+        createRow(mano) //tablauzathoz sor hozzáadása
+    }
+    createId(){
+        return this.manolist.length //a hossza lesz az index
     }
 }
    
    class Companion{
-    // TODO 
+    // TODO 5
     constructor(id, keresztnev, vezeteknev, reszleg) 
         {
             this.id = id

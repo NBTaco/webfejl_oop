@@ -58,9 +58,8 @@ function initTable(){
 
         console.log(companion) //kiirjuk a companiont a kozolra
         factory.addMano(companion) // factoryhez hozzaadjuk
-        createRow(companion)
     }
-    console.log(factory) // factory kiirasa
+    console.log(factory) // factory kiirasa 
 }
 
 
