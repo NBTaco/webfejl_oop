@@ -152,3 +152,4 @@ madar.repules();
 const mammal = new Mammal("Hörcsög");
 mammal.hang();
 mammal.setalas();
+
