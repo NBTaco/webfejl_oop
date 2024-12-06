@@ -13,7 +13,7 @@ class Factory{
    
    class Companion{
     // TODO 
-    constructor(id, keresztnev, vezeteknev, reszleg)
+    constructor(id, keresztnev, vezeteknev, reszleg) 
         {
             this.id = id
             this.keresztnev = keresztnev
@@ -21,9 +21,12 @@ class Factory{
             this.reszleg = reszleg
             this.products = []
         }
-        AddProduct(product){
+        addProduct(product){ // product hozzáadás
             this.products.push(product)
+        }
+        getName(){ // teljes név kiirása
+            return this.keresztnev + " " + this.vezeteknev
         }
     }
     
-    
+

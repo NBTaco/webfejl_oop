@@ -8,6 +8,12 @@ function createRow(companion){
     const tbody = table.querySelector('tbody');
     const tableRow = document.createElement('tr');
     tbody.appendChild(tableRow);
+    const td1 = createCell(tableRow)
+    td1.innerHTML = companion.getName()
+    const td2 = createCell(tableRow)
+    td2.innerHTML = companion.reszleg
+
+    
 
    // TODO 7
 
