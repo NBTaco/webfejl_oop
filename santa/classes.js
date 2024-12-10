@@ -9,6 +9,7 @@ class Factory{
     {
         this.manolist.push(mano)
         createRow(mano) //tablauzathoz sor hozzáadása
+        appendToSelector(mano)
     }
     createId(){
         return this.manolist.length //a hossza lesz az index
@@ -20,6 +21,15 @@ class Factory{
             }
         }
     }
+    addProductToMano(product, id){
+        for(let i = 0; i < this.manolist.length; i++){
+            if(this.manolist[i].getName() == id){
+                this.manolist[i].addProduct(product)
+                this.showProducts(this.manolist[i].id)
+            }
+        }
+    }
+
 }
    
    class Companion{

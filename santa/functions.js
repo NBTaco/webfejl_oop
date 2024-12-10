@@ -42,12 +42,12 @@ function createCell(parentElement){
  * Append a new companion to the selector
  * 
  */
-function appendToSelector(){
+function appendToSelector(mano){
     const productForm = document.getElementById('product')
     const selector = productForm.querySelector('#companionlist');
-
+    
     const option = document.createElement('option');
-    // TODO 11.
+    option.text =  mano.getName()   // TODO 11.
 
     selector.appendChild(option);
 }
@@ -111,5 +111,7 @@ function addProductForm(form, factory){ // TODO
     const productName = form.querySelector('#productname')
     const companionId = selector.value;
     const product = productName.value;
+    factory.addProductToMano(product, companionId)
+    console.log(factory)
     // 12
 }
