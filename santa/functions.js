@@ -45,9 +45,10 @@ function createCell(parentElement){
 function appendToSelector(mano){
     const productForm = document.getElementById('product')
     const selector = productForm.querySelector('#companionlist');
-    
+
     const option = document.createElement('option');
-    option.text =  mano.getName()   // TODO 11.
+    option.text = mano.getName()   // TODO 11.
+    option.value = mano.id
 
     selector.appendChild(option);
 }

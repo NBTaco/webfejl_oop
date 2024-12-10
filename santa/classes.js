@@ -23,7 +23,7 @@ class Factory{
     }
     addProductToMano(product, id){
         for(let i = 0; i < this.manolist.length; i++){
-            if(this.manolist[i].getName() == id){
+            if(this.manolist[i].id == id){
                 this.manolist[i].addProduct(product)
                 this.showProducts(this.manolist[i].id)
             }
