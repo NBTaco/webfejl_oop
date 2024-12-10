@@ -8,6 +8,7 @@ function createRow(companion){
     const tbody = table.querySelector('tbody');
     const tableRow = document.createElement('tr');
     tbody.appendChild(tableRow);
+    tableRow.id = companion.id
     const td1 = createCell(tableRow) // cella hozzáadása teljes névvel (getName())
     td1.innerHTML = companion.getName()
     const td2 = createCell(tableRow) // cellaa a reszlegrol
@@ -61,13 +62,21 @@ function appendToSelector(){
 function refreshProductList(companion){ //TODO
 
     const companionName = document.getElementById('companion_name');
-    // TODO 10
+    companionName.innerHTML = companion.getName()
     companionName.style.display = 'block';
     const productTable = document.getElementById('products');
     productTable.style.display = 'table';
     const productTableBody = productTable.querySelector('tbody')
-    productTableBody.innerHTML = '';
-    // TODO 10
+    productTableBody.innerHTML = "";
+    for(let i = 0; i <companion.products.length; i ++)
+        {
+            const product = companion.products[i]
+            const sor = document.createElement('tr')
+            const td = document.createElement('td')
+            td.innerHTML = product
+            sor.appendChild(td)
+            productTableBody.appendChild(sor)
+        }
 }
 
 /**

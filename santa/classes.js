@@ -13,6 +13,13 @@ class Factory{
     createId(){
         return this.manolist.length //a hossza lesz az index
     }
+    showProducts(id){
+        for(let i = 0; i < this.manolist.length; i++){
+            if(this.manolist[i].id == id){
+                refreshProductList(this.manolist[i])
+            }
+        }
+    }
 }
    
    class Companion{
