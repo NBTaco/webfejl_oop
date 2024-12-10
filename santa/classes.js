@@ -4,6 +4,7 @@ class Factory{
     constructor()
     {
         this.manolist = []
+        this.reszlegek = []
     }
     addMano(mano)
     {
@@ -28,6 +29,31 @@ class Factory{
                 this.showProducts(this.manolist[i].id)
             }
         }
+    }
+    addReszleg(reszleg){
+    if(!this.reszlegek.includes(reszleg))
+        this.reszlegek.push(reszleg)
+    
+
+        //1. végigmegyunk a reszlegek listan
+        //2. megnezzuk, hogy a reszlegek listaban benne van e már a bement paraméter
+        //3. miutan végignéztük a listát megnézzük hogy benne van e mar a bementi paraméter
+        //4. ha nincs benne akkor belerakjuk
+
+        /*
+        let vanebenne = false
+        for(let i = 0; i< this.reszlegek.length; i++) //végigmegy a reszlegek listan pipa
+            {
+                const currentelement = this.reszlegek[i] //az aktualis elemet kivesszuk egy valtozoba
+                if(currentelement == reszleg){ //menezi hogy az aktualis elem egyenlo-e a bemeneti parameterrel
+                    vanebenne = true
+                    break
+                }
+            }
+        if(vanebenne === false){
+            this.reszlegek.push(reszleg) //hozzáadja a bementi paramétert a reszlegekhez
+        }
+        */
     }
 
 }

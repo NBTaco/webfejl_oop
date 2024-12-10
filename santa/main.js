@@ -51,10 +51,12 @@ function initTable(){
     {
         const mano = companionList[i] //List- i-dik eleme kivéve
         const companion = new Companion(i, mano.firstName, mano.lastName, mano.area) //Companion objektum létrehoz, contruktorra példányositjuk
+        factory.addReszleg(mano.area)
         for (const y of mano.products)  //mano objektum products-on megy végig
         {
             companion.addProduct(y) //hozzáadja az companion objektumhoz a productot
         }
+
 
         console.log(companion) //kiirjuk a companiont a kozolra
         factory.addMano(companion) // factoryhez hozzaadjuk
