@@ -42,27 +42,33 @@ class ArrayList {
             delete this[i]
         }
     }
+
+    
+    Contains(element){
+        for(let i = 0; i < this.#aktualishossz; i++){
+            if(this.#state[i] == element){
+                return true
+            }
+        }
+        return false
+    }
 }
-
-const alma = {}
-Object.defineProperty(alma, 'nev', {
-    value: 'Ferenc',
-    wriable: true
-})
-
-alma.nev = 'niagara'
-console.log(alma)
-
 
 const lista = new ArrayList()
 lista.Add('asd1')
-console.log(lista)
+console.log(lista.Contains("asd1"))
 
 lista.Add('asd2')
+console.log(lista.Contains("asd2"))
+
+const asd3 = {nev: "asd3"}
+lista.Add(asd3)
+console.log(lista.Contains(asd3))
+
+const asd4 = {nev: "asd4"}
+console.log(lista.Contains(asd4))
+
 console.log(lista)
 
-lista.Add({new: 'asd3'})
-console.log(lista)
-
-console.log(lista[0])
+lista.Clear()
 
