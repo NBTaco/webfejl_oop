@@ -37,6 +37,10 @@ class ArrayList {
     Clear(){
         this.#aktualishossz = 0
         this.#state = {}
+
+        for(let i in this){
+            delete this[i]
+        }
     }
 }
 
