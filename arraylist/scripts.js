@@ -43,7 +43,6 @@ class ArrayList {
         }
     }
 
-    
     Contains(element){
         for(let i = 0; i < this.#aktualishossz; i++){
             if(this.#state[i] == element){
