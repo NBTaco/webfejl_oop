@@ -4,18 +4,18 @@ class ArrayList {
      */
     #aktualishossz
 
-    /**
-     * 
-     */
     #state
+
+    #arraytable
 
     get Count() {
         return this.#aktualishossz
     }
 
-    constructor(){
+    constructor(arraytable = undefined){
         this.#aktualishossz = 0
         this.#state = {}
+
     }
 
     Add(element) {
@@ -23,10 +23,10 @@ class ArrayList {
         this.#state[index] = element
 
         Object.defineProperty(this, index, {
-            get: function(){
+            get: () => {
                 return this.#state[index]
             },
-            set: function(value){
+            set: (value) => {
                 this.#state[index] = value
             }
         })
@@ -52,6 +52,68 @@ class ArrayList {
         return false
     }
 }
+
+class TableHTMLArray 
+extends HTMLElement{
+    #tbody
+
+    constructor(){
+        super()
+    }
+    
+    connectedCallback(){
+        const table = document.createElement('table')
+        this.appendChild(table)
+
+        const thead = document.createElement('thead')
+        table.appendChild(thead)
+
+        this.#tbody = document.createElement('tbody')
+        table.appendChild(this.#tbody)
+    }
+
+    /**
+     * 
+     * @param {{nev: String , eletkor: Number} } param 
+     */
+    addPersonRow(param){
+        const tr = document.createElement('tr')
+        this.#tbody.appendChild(tr)
+
+        const td1 = document.createElement('td')
+        const td2 = document.createElement('td')
+
+        td1.innerHTML = param.nev
+        td2.innerHTML = param.eletkor
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+    }
+}
+
+customElements.define('aray-table', TableHTMLArray)
+
+const arraytable = new TableHTMLArray()
+
+document.body.appendChild(arraytable)
+
+arraytable.addPersonRow({nev: 'V' , eletkor: 10})
+arraytable.addPersonRow({nev: 'A' , eletkor: 11})
+arraytable.addPersonRow({nev: 'R' , eletkor: 12})
+arraytable.addPersonRow({nev: 'G' , eletkor: 13})
+arraytable.addPersonRow({nev: 'A' , eletkor: 14})
+arraytable.addPersonRow({nev: ' ', eletkor: 15})
+arraytable.addPersonRow({nev: 'M', eletkor: 16})
+arraytable.addPersonRow({nev: 'Á', eletkor: 17})
+arraytable.addPersonRow({nev: 'R', eletkor: 18})
+arraytable.addPersonRow({nev: 'K', eletkor: 19})
+arraytable.addPersonRow({nev: ' ', eletkor: 20})
+arraytable.addPersonRow({nev: 'B', eletkor: 21})
+arraytable.addPersonRow({nev: 'E', eletkor: 22})
+arraytable.addPersonRow({nev: 'N ', eletkor: 23})
+arraytable.addPersonRow({nev: 'C', eletkor: 24})
+arraytable.addPersonRow({nev: 'E', eletkor: 25})
+
 
 const lista = new ArrayList()
 lista.Add('asd1')
