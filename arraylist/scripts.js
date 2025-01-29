@@ -122,3 +122,54 @@ const elem1 = {nev: ' ', eletkor: 26}
 const elem2 = {nev: ' !', eletkor: 27}
 arraytablelist.Add(elem1)
 arraytablelist.Add(elem2)
+
+
+
+const br = document.createElement('br')
+document.body.appendChild(br)
+
+const div = document.createElement('div')
+document.body.appendChild(div)
+
+const label1 = document.createElement('span')
+label1.innerHTML = 'név: '
+div.appendChild(label1)
+
+const input1 = document.createElement('input')
+input1.type = 'text'
+input1.id = 'nev'
+div.appendChild(input1)
+
+const br1 = document.createElement('br')
+div.appendChild(br1)
+
+const label2 = document.createElement('span')
+label2.innerHTML = 'életkor: '
+div.appendChild(label2)
+
+const input2 = document.createElement('input')
+input2.type = 'number'
+input2.id = 'eletkor'
+div.appendChild(input2)
+
+const br2 = document.createElement('br')
+div.appendChild(br2)
+
+const button = document.createElement('button')
+button.innerHTML = 'hozzáadás'
+div.appendChild(button)
+
+
+button.addEventListener('click', function(e){
+    e.preventDefault()
+
+    const elso = document.getElementById('nev').value
+    const masodik = document.getElementById('eletkor').value
+
+    if(elso == "" || masodik == "")
+        return
+    
+    const uj = {nev: elso, eletkor: masodik}
+
+    arraytablelist.Add(uj)
+})
