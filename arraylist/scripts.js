@@ -15,7 +15,7 @@ class ArrayList {
     constructor(arraytable = undefined){
         this.#aktualishossz = 0
         this.#state = {}
-
+        this.#arraytable = arraytable
     }
 
     Add(element) {
@@ -32,6 +32,9 @@ class ArrayList {
         })
 
         this.#aktualishossz++
+        if(this.#arraytable){
+            this.#arraytable.addPersonRow(element)
+        }
     }
 
     Clear(){
@@ -114,22 +117,8 @@ arraytable.addPersonRow({nev: 'N ', eletkor: 23})
 arraytable.addPersonRow({nev: 'C', eletkor: 24})
 arraytable.addPersonRow({nev: 'E', eletkor: 25})
 
-
-const lista = new ArrayList()
-lista.Add('asd1')
-console.log(lista.Contains("asd1"))
-
-lista.Add('asd2')
-console.log(lista.Contains("asd2"))
-
-const asd3 = {nev: "asd3"}
-lista.Add(asd3)
-console.log(lista.Contains(asd3))
-
-const asd4 = {nev: "asd4"}
-console.log(lista.Contains(asd4))
-
-console.log(lista)
-
-lista.Clear()
-
+const arraytablelist = new ArrayList(arraytable)
+const elem1 = {nev: ' ', eletkor: 26}
+const elem2 = {nev: ' !', eletkor: 27}
+arraytablelist.Add(elem1)
+arraytablelist.Add(elem2)
