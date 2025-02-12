@@ -28,3 +28,12 @@ const d = obj.calculate3(10, 15, (elso, masodik) => elso * masodik) // a calacul
 
 console.log(d) //logoljuk d-t
 
+function theFunction(){ //theFunction fuggveny letrehozasa
+    const szam = 10 //szam = 10
+    console.log(obj.calculate2((elso, masodik) => elso * szam + masodik)) //logolunk, claculate2-t hivjukmeg, elso, masodik param, kozbe megszorozzuk a szam-al
+    
+}
+theFunction() //fuggveny meghivasa
+
+
+
