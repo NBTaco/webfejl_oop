@@ -246,5 +246,29 @@ input3.addEventListener('input', function(e){
     }
 })
 
-console.log(dm.orderByAge())
-console.log(dm.orderByName())
+const fileinptu = document.createElement("input")
+fileinptu.type = "file"
+document.body.appendChild(fileinptu)
+
+fileinptu.addEventListener("change", (e) => {
+    e.preventDefault()
+    const file = e.currentTarget.files[0]
+
+    const fr = new FileReader()
+
+    fr.onload = function(){
+        const result = fr.result
+        const sor = result.split("\n")
+    
+        sor.forEach(function(sor){
+            const [nev, eletkor] = sor.split(";")
+            const person = {
+                nev: nev,
+                eletkor: eletkor
+            }
+
+            dm.add(person)
+        })
+    }
+    fr.readAsText(file)
+})
