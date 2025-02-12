@@ -264,7 +264,7 @@ fileinptu.addEventListener("change", (e) => {
             const [nev, eletkor] = sor.split(";")
             const person = {
                 nev: nev,
-                eletkor: eletkor
+                eletkor: Number(eletkor)
             }
 
             dm.add(person)
