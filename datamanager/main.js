@@ -72,6 +72,38 @@ class Datamanager{
 
         this.#updatecallback(gyujtottek)
     }
+
+    /**
+     * 
+     * @param {function(Person):boolean} filterCallback
+     */
+    filter(filterCallback){
+        const gyujtottek = []
+
+        for(let i = 0; i < this.#array.length; i++){
+            if(filterCallback(this.#array[i])){
+                gyujtottek.push(this.#array[i])
+            }
+        }
+
+        this.#updatecallback(gyujtottek)
+    }
+
+    order(tipus){
+        const tempArray = this.#array
+
+        tempArray.sort(tipus)
+
+        return tempArray
+    }
+
+    orderByName() {
+        return this.order((elso, masodik) => elso.nev.localeCompare(masodik.nev));
+    }
+
+    orderByAge(){
+        return this.order((elso,masodik) => masodik.eletkor - elso.eletkor)
+    }
 }
 
 class DataTable{
@@ -81,6 +113,32 @@ class DataTable{
 
         const thead = document.createElement('thead')
         table.appendChild(thead)
+
+        const thr = document.createElement('tr')
+        thead.appendChild(thr)
+
+        const thc1 = document.createElement('th')
+        thc1.innerHTML = "név"
+
+        const thc2 = document.createElement('th')
+        thc2.innerHTML = "életkor"
+
+        thc1.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const ordered = datamanager.orderByName()
+            this.#renderTable(ordered)  
+        })
+
+        thc2.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const ordered = datamanager.orderByAge()
+            this.#renderTable(ordered)  
+        })
+
+        thr.appendChild(thc1)
+        thr.appendChild(thc2)
 
         this.#tbody = document.createElement('tbody')
         table.appendChild(this.#tbody)
@@ -155,6 +213,16 @@ document.body.appendChild(input2)
 const br2 = document.createElement('br')
 document.body.appendChild(br2)
 
+const label3 = document.createElement('label')
+label3.innerHTML = 'Szűrés: '
+document.body.appendChild(label3)
+
+const input3 = document.createElement('input')
+document.body.appendChild(input3)
+
+const br3 = document.createElement('br')
+document.body.appendChild(br3)
+
 input1.addEventListener('input', function(e){
     e.preventDefault()
 
@@ -166,3 +234,17 @@ input2.addEventListener('input', function(e){
 
     dm.filterage(Number(e.target.value))
 })
+
+input3.addEventListener('input', function(e){
+    e.preventDefault()
+
+    if (isNaN(e.target.value)) { 
+        dm.filter((person) => person.nev == e.target.value)
+    } 
+    else { 
+        dm.filter((person) => person.eletkor == e.target.value)
+    }
+})
+
+console.log(dm.orderByAge())
+console.log(dm.orderByName())
