@@ -19,3 +19,12 @@ const c = obj.calculate1(10, 20) //calculate1 meghivasa ket szammal
 console.log(a) //logolunjuk a-t
 console.log(b) //logoljuk b-t
 console.log(c) //logoljuk c-t
+
+obj.calculate3 = function(elso, masodik, fuggveny){ //calculate3 letrehozasa bementi par: elso, masodik, fuggveny
+    return fuggveny(elso, masodik) //a fugveny paraméter fuggvenykent ter vissza az elso es a masodik paraméterrel 
+}
+
+const d = obj.calculate3(10, 15, (elso, masodik) => elso * masodik) // a calaculate 3-at mghivjuk, most osszeszorozza a ket szamot
+
+console.log(d) //logoljuk d-t
+
