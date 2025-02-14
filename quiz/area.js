@@ -31,7 +31,7 @@ class Area {
      * @returns {HTMLDivElement} containert tartalmazza
      */
     #getContainer(){
-        let container = document.querySelector('container')
+        let container = document.querySelector('.container')
         if(!container){
             container = document.createElement('div')
             container.className = 'container'
@@ -45,8 +45,20 @@ class Area {
  * Ez a terulet fogja tartalmazni a kerdest
  */
 class QuestionArea extends Area{ //leszarmazzuk az Area osztalybol
-    constructor(cssClass){
+
+    /**
+     * 
+     * @param {cssClass} cssClass 
+     * @param {Manager} manager
+     */
+    constructor(cssClass, manager){
         super(cssClass) //az os css class konstruktorát hivja meg 
+        manager.setNextQuestionCallback((kerdesszoveg) => {
+            this.div.innerHTML = ''
+            const questionCard = document.createElement('div')
+            questionCard.textContent = kerdesszoveg
+            this.div.appendChild(questionCard)
+        })
     }
 }
 
@@ -54,8 +66,26 @@ class QuestionArea extends Area{ //leszarmazzuk az Area osztalybol
  * Ez a terulet fogja tartalmazni a valaszokat
  */
 class AnswerArea extends Area{
-    constructor(cssClass){
+
+    /**
+     * 
+     * @param {string} cssClass 
+     * @param {Manager} manager 
+     */
+    constructor(cssClass, manager){
         super(cssClass)
+        manager.setNextAnswerCallback((valaszok) => {
+            this.div.innerHTML = ''
+            for(const valasz of valaszok){
+                const answerCard = document.createElement('div')
+                answerCard.className = 'item'
+                answerCard.textContent = valasz
+                answerCard.addEventListener('click', ()=> {
+                    manager.nextQuestion(valasz)
+                })
+                this.div.appendChild(answerCard)
+            }
+        })
     }
 }
 
