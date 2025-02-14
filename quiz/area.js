@@ -16,12 +16,20 @@ class Area {
     /**
      * 
      * @param {string} cssClass 
+     * @param {Manager} manager
      */
-    constructor(cssClass){
+    constructor(cssClass, manager){
         const container = this.#getContainer()
         this.#div = document.createElement('div')
         this.#div.className = cssClass
         container.appendChild(this.#div)
+        manager.setFinishCallback((resulttext) => {
+            container.innerHTML = ''
+            const resultDIv = document.createElement('div')
+            resultDIv.textContent = resulttext
+            resultDIv.className = 'result'
+            container.appendChild(resultDIv)
+        })
     }
 
     /**
@@ -52,7 +60,7 @@ class QuestionArea extends Area{ //leszarmazzuk az Area osztalybol
      * @param {Manager} manager
      */
     constructor(cssClass, manager){
-        super(cssClass) //az os css class konstruktorát hivja meg 
+        super(cssClass, manager) //az os css class konstruktorát hivja meg 
         manager.setNextQuestionCallback((kerdesszoveg) => {
             this.div.innerHTML = ''
             const questionCard = document.createElement('div')
@@ -73,7 +81,7 @@ class AnswerArea extends Area{
      * @param {Manager} manager 
      */
     constructor(cssClass, manager){
-        super(cssClass)
+        super(cssClass, manager)
         manager.setNextAnswerCallback((valaszok) => {
             this.div.innerHTML = ''
             for(const valasz of valaszok){
