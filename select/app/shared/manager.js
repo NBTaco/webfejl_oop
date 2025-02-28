@@ -27,7 +27,7 @@ class Manager{
     }
 
     add(anwser){
-        this.#array.push()
+        this.#array.push(anwser)
     }
     nextCard(answer){
         if(answer){ 
