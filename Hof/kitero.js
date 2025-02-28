@@ -27,11 +27,24 @@ const fv3 = (operator) => {
             return a-b
         }
     }
+
+    if(operator === '*2'){
+        const multi = 2
+        return(a,b) => {
+            return (a+b)*multi
+        }
+    }
 }
 
 const fv4 = fv3('-')
 
 console.log(fv4(5,7))
 
+const res3 = fv2(5,7,fv3('-'))
 
+console.log(res3)
+
+const res4 = fv2(5,7,fv3('*2'))
+
+console.log(res4)
 
