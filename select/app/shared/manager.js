@@ -8,7 +8,7 @@ class Manager{
     #finishCallback
 
 
-    constructor(array){
+    constructor(array = []){
         this.#array = array;
         this.#solution = {}
         this.#currentCardNumber = 0;
@@ -26,7 +26,9 @@ class Manager{
         this.#finishCallback = callback;
     }
 
-
+    add(anwser){
+        this.#array.push()
+    }
     nextCard(answer){
         if(answer){ 
             this.#solution[this.#currentCardNumber] = answer 

@@ -1,7 +1,13 @@
 class Area {
      #div;
+     #manager;
+
      get div(){
          return this.#div;
+     }
+
+     get manager(){
+        return this.#manager
      }
 
      constructor(cssclass,manager){
@@ -9,15 +15,19 @@ class Area {
         this.#div = document.createElement('div');
         this.#div.className = cssclass;
         container.appendChild(this.#div);
-        manager.setFinishCallback(result => {
-            container.innerHTML = '';
+        manager.setFinishCallback(this.#finishCallback(container))
+     }
+     
+     #finishCallback(containerDiv){
+        return result => {
+            containerDiv.innerHTML = '';
             const div = document.createElement('div');
             div.className = 'result';
             div.textContent = result;
-            container.appendChild(div);
-        })
+            containerDiv.appendChild(div);
+        }
      }
- 
+
      #getContainer(){
          let container = document.querySelector('.container')
          if(!container){
